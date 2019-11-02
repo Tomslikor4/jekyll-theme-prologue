@@ -7,9 +7,6 @@ layout: default
 <div id="main">
 	<!-- Post -->
 	<article class="shade-two">
-	  {% if page.img %}
-	  
-	  {% endif %}
 	  <div class="container">
 	  <div class="row">
 			<header>
@@ -19,10 +16,10 @@ layout: default
 	  </div>
 	  <div class="row">
 	    {% if page.img %}
-	    <div class="2u 12u$(mobile)">
- 	      <a href="#" class="image fit"><img src="/jekyll-theme-prologue/assets/images/{{ page.img }}" alt="{{ post.title }}" /></a>
+	    <div class="3u 12u$(mobile)">
+ 	      <a href="#" class="image fit"><img src="/jekyll-theme-prologue/assets/images/{{- page.img -}}" alt="{{- page.title -}}" /></a>
             </div>
-	    <div class="10u 12u$(mobile)">
+	    <div class="9u 12u$(mobile)">
  	    {% else %}
 	    <div class="col">
 	    {% endif %}

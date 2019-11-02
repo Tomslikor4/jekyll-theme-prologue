@@ -17,7 +17,26 @@ layout: default
 			{% if _post.author -%}{{- _post.author }} | {% endif %}
 			{{- _post.date | date_to_long_string -}}
 		{%- endcapture -%}
-		{%- capture _excerpt -%}<p>{{- _post.excerpt | strip_html | truncatewords: 100 -}}</p>{%- endcapture -%}
+		
+		
+		{%- capture _excerpt -%}
+		<div class="container-fluid">
+		  <div class="row">
+		  {% if _post.img %}
+		  <div class="col 3u 12u$(mobile)">
+ 	      		<a href="#" class="image fit"><img src="/jekyll-theme-prologue/assets/images/{{- _post.img -}}" alt="{{- _post.title -}}" /></a>
+            	  </div>
+		  <div class="col 9u 12u$(mobile)">
+		  {% else %}
+		  <div>
+		  {% endif %}
+		    <p>{{- _post.excerpt | strip_html | truncatewords: 100 -}}</p>
+		  </div>
+		  </div>
+		</div>
+		{%- endcapture -%}
+		
+		
 		{%- capture _link -%}<a href="{{- _post.url | absolute_url -}}">read more</a>{%- endcapture -%}
 		{%- assign _content = _excerpt | append: _link -%}
 		{%- include section.html title=_title subtitle=_subtitle content=_content -%}
